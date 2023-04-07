@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { COLORS, FONT, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
-  container: {
+  container: (platform = 'ios') => ({
     position: "absolute",
     bottom: 0,
     left: 0,
@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
-  },
+    paddingBottom: platform === 'ios' ? 32 : undefined
+  }),
   likeBtn: {
     width: 55,
     height: 55,
